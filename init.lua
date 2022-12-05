@@ -1,0 +1,6 @@
+require("carnifx.plugins-setup")
+require("carnifx.core.options")
+require("carnifx.core.keymaps")
+require("carnifx.core.colorscheme")
+require("carnifx.plugins.comment")
+require("carnifx.plugins.nvim-tree")
