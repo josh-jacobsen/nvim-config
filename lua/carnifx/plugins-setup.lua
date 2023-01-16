@@ -66,7 +66,39 @@ return packer.startup(function(use)
   use({ "nvim-telescope/telescope.nvim", branch = "0.1.x" }) -- fuzzy finder
 
   -- use({"ckipp01/stylua-nvim", run = "cargo install stylua"})
+  -- completion engine
+  -- use {
+  --   'hrsh7th/nvim-cmp',
+  --   requires = {
+  --     { 'hrsh7th/cmp-buffer', after = 'nvim-cmp', },
+  --     { 'hrsh7th/cmp-nvim-lsp', after = 'nvim-cmp', },
+  --     { 'saadparwaiz1/cmp_luasnip', after = 'LuaSnip', },
+  --   },
+  --   -- config = function() require('plugins.cmp') end,
+  -- }
+  -- -- autocompletion
+  -- -- use("hrsh7th/nvim-cmp") -- completion plugin
+  -- use("hrsh7th/cmp-buffer") -- source for text in buffer
+  -- use("hrsh7th/cmp-path") -- source for file system paths
 
+  -- snippets
+  -- use("saadparwaiz1/cmp_luasnip") -- for autocompletion
+  -- use("rafamadriz/friendly-snippets") -- useful snippets
+
+-- Install nvim-cmp, and buffer source as a dependency
+  use { 
+    "hrsh7th/nvim-cmp", 
+    requires = {
+      "hrsh7th/vim-vsnip", 
+      "hrsh7th/cmp-buffer", 
+      "hrsh7th/cmp-nvim-lsp",
+      "L3MON4D3/LuaSnip",
+      "saadparwaiz1/cmp_luasnip"
+    } 
+  }
+
+
+  -- use("L3MON4D3/LuaSnip") -- snippet engine
 
   if packer_bootstrap then
     require("packer").sync()

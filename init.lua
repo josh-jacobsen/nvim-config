@@ -6,3 +6,5 @@ require("carnifx.plugins.comment")
 require("carnifx.plugins.nvim-tree")
 require("carnifx.plugins.lualine")
 require("carnifx.plugins.telescope")
+require("carnifx.plugins.cmp")
+
