@@ -38,6 +38,8 @@ local on_attach = function(client, bufnr)
 	-- it would appear that this doesn't work
 	-- keymap.set("n", "gD", vim.lsp.buf.declaration, opts) -- got to declaration
 
+	keymap.set("n", "gs", "<cmd>Lspsaga peek_definition<CR>", opts) -- see definition and make edits in window
+
 	nmap("gD", vim.lsp.buf.definition, "[G]oto [D]efinition")
 	--keymap.set("n", "gD", vim.lsp.buf.definition, opts) -- got to declaration
 	keymap.set("n", "gd", "<cmd>Telescope lsp_definitions<CR>", opts) -- see definition and make edits in window
@@ -113,7 +115,7 @@ lspconfig["emmet_ls"].setup({
 })
 
 -- configure lua server (with special settings)
-lspconfig["sumneko_lua"].setup({
+lspconfig["lua_ls"].setup({
 	capabilities = capabilities,
 	on_attach = on_attach,
 	settings = { -- custom settings for lua
