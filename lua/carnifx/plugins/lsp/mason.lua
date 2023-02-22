@@ -23,9 +23,10 @@ mason_lspconfig.setup({
 	-- list of servers for mason to install
 	ensure_installed = {
 		"tsserver",
+    'eslint',
 		"html",
 		"cssls",
-		"tailwindcss",
+		-- "tailwindcss",
 		"lua_ls",
 		"emmet_ls",
 	},
