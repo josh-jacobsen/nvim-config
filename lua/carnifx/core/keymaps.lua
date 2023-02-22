@@ -11,10 +11,12 @@ local keymap = vim.keymap -- for conciseness
 keymap.set("i", "jk", "<ESC>")
 
 -- find all instances of variable in current file
-keymap.set("n", "ss", "*") 
+keymap.set("n", "ss", "*")
+
+keymap.set("n", "<C-j>", "5j")
+keymap.set("v", "<C-j>", "5j")
 
 keymap.set("n", "<leader>w", ":w<CR>")
-
 
 -- clear search highlights
 keymap.set("n", "cl", ":nohl<CR>")
@@ -54,4 +56,3 @@ keymap.set("n", "<leader>fs", "<cmd>Telescope live_grep<cr>") -- find string in 
 keymap.set("n", "<leader>fc", "<cmd>Telescope grep_string<cr>") -- find string under cursor in current working directory
 keymap.set("n", "<leader>fb", "<cmd>Telescope buffers<cr>") -- list open buffers in current neovim instance
 keymap.set("n", "<leader>fh", "<cmd>Telescope help_tags<cr>") -- list available help tags
-

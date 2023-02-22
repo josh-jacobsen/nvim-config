@@ -34,11 +34,16 @@ local on_attach = function(client, bufnr)
 	end
 
 	-- set keybinds
+	keymap.set("n", "gf", "<cmd>Lspsaga lsp_finder<CR>", opts) -- show lspsaga table with references, definition, and implementation
 	keymap.set("n", "gR", "<cmd>Telescope lsp_references<CR>", opts) -- show definition, references
+	keymap.set("n", "gs", "<cmd>Lspsaga peek_definition<CR>", opts) -- see definition and make edits in window
+
+	keymap.set("n", "<leader>cl", "<cmd>Lspsaga code_action<CR>", opts) -- see available code actions
+	keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opts) -- see available code actions
+
+	keymap.set("n", "<leader>rn", "<cmd>Lspsaga rename<CR>", opts) -- smart rename
 	-- it would appear that this doesn't work
 	-- keymap.set("n", "gD", vim.lsp.buf.declaration, opts) -- got to declaration
-
-	keymap.set("n", "gs", "<cmd>Lspsaga peek_definition<CR>", opts) -- see definition and make edits in window
 
 	nmap("gD", vim.lsp.buf.definition, "[G]oto [D]efinition")
 	--keymap.set("n", "gD", vim.lsp.buf.definition, opts) -- got to declaration
@@ -53,9 +58,7 @@ local on_attach = function(client, bufnr)
 	-- 	{ noremap = true, silent = true, buffer = bufnr, jump_type = "never" }
 	-- ) -- go to definition of the type, if only 1, otherwise show all options
 
-	keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opts) -- see available code actions
 	keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, opts) -- see available code actions, in visual mode will apply to selection
-	keymap.set("n", "<leader>rn", ":IncRename ", opts) -- smart rename
 	keymap.set("n", "<leader>D", "<cmd>Telescope diagnostics bufnr=0<CR>", opts) -- show  diagnostics for file
 	keymap.set("n", "<leader>d", vim.diagnostic.open_float, opts) -- show diagnostics for line
 	keymap.set("n", "[d", vim.diagnostic.goto_prev, opts) -- jump to previous diagnostic in buffer
