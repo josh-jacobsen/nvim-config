@@ -9,7 +9,9 @@ local keymap = vim.keymap -- for conciseness
 
 -- exit insert mode
 keymap.set("i", "jk", "<ESC>")
-
+-- map Ctl c to Escape so I don't have to move my fingers when trying to get
+-- out of the thing I just got myself into
+keymap.set("n", "<C-c>", "<Esc>")
 -- find all instances of variable in current file
 keymap.set("n", "ss", "*")
 
@@ -51,6 +53,7 @@ keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>") -- toggle file explorer
 keymap.set("n", "<leader>lf", ":NvimTreeFindFile<CR>") -- Locate current file in explorer
 
 -- telescope
+-- map('n', '<leader>ff', "<cmd>lua require'telescope.builtin'.find_files({ find_command = {'rg', '--files', '--hidden', '-g', '!.git' }})<cr>", default_opts)
 keymap.set("n", "<leader>ff", "<cmd>Telescope find_files<cr>") -- find files within current working directory, respects .gitignore
 keymap.set("n", "<leader>fs", "<cmd>Telescope live_grep<cr>") -- find string in current working directory as you type
 keymap.set("n", "<leader>fc", "<cmd>Telescope grep_string<cr>") -- find string under cursor in current working directory

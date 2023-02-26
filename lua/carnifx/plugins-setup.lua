@@ -108,6 +108,8 @@ return packer.startup(function(use)
 	use("jose-elias-alvarez/null-ls.nvim") -- configure formatters & linters
 	use("jayp0521/mason-null-ls.nvim") -- bridges gap b/w mason & null-ls
 
+	use("MunifTanjim/eslint.nvim")
+
 	-- Prettier
 	use("MunifTanjim/prettier.nvim")
 
