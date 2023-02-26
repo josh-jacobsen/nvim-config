@@ -38,8 +38,9 @@ local on_attach = function(client, bufnr)
 	keymap.set("n", "gR", "<cmd>Telescope lsp_references<CR>", opts) -- show definition, references
 	keymap.set("n", "gs", "<cmd>Lspsaga peek_definition<CR>", opts) -- see definition and make edits in window
 
-	keymap.set("n", "<leader>cl", "<cmd>Lspsaga code_action<CR>", opts) -- see available code actions
-	keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opts) -- see available code actions
+	keymap.set("n", "<leader>ca", "<cmd>Lspsaga code_action<CR>", opts) -- see available code actions
+	-- I think I like the Lspsaga code actions dialogue more than the built in one
+	-- keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opts) -- see available code actions
 
 	keymap.set("n", "<leader>rn", "<cmd>Lspsaga rename<CR>", opts) -- smart rename
 	-- it would appear that this doesn't work
@@ -84,6 +85,26 @@ for type, icon in pairs(signs) do
 	vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
 end
 
+-- configure eslint
+lspconfig["eslint"].setup({
+	capabilities = capabilities,
+	flags = { debounce_text_changes = 500 },
+	on_attach = function(client, bufnr)
+		client.resolved_capabilities.document_formatting = true
+		if client.resolved_capabilities.document_formatting then
+			-- if client.supports_method("textDocument/formatting") then
+			local au_lsp = vim.api.nvim_create_augroup("eslint_lsp", { clear = true })
+			vim.api.nvim_create_autocmd("BufWritePre", {
+				pattern = "*",
+				callback = function()
+					vim.lsp.buf.formatting_sync()
+				end,
+				group = au_lsp,
+			})
+		end
+	end,
+})
+
 -- configure html server
 lspconfig["html"].setup({
 	capabilities = capabilities,
@@ -97,6 +118,13 @@ typescript.setup({
 		on_attach = on_attach,
 	},
 })
+-- try alternative tsserver setup
+-- lspconfig["tsserver"].setup({
+-- 	capabilities = capabilities,
+-- 	on_attach = function(client)
+-- 		client.server_capabilities.document_formatting = false
+-- 	end,
+-- })
 
 -- configure css server
 lspconfig["cssls"].setup({
