@@ -9,7 +9,9 @@ local keymap = vim.keymap -- for conciseness
 
 -- exit insert mode
 keymap.set("i", "jk", "<ESC>")
-
+-- map Ctl c to Escape so I don't have to move my fingers when trying to get
+-- out of the thing I just got myself into
+keymap.set("n", "<C-c>", "<Esc>")
 -- find all instances of variable in current file
 keymap.set("n", "ss", "*")
 
