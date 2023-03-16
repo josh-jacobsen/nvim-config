@@ -36,3 +36,9 @@ opt.splitright = true
 opt.splitbelow = true
 
 opt.iskeyword:append("-")
+
+-- Convert line endings to Unix-style when reading a file
+-- vim.cmd("autocmd BufRead * :%s/\\r//g")
+
+-- Convert line endings to Unix-style when writing a file
+-- vim.cmd("autocmd BufWritePre * :%s/\\r//g")

@@ -34,20 +34,25 @@ local on_attach = function(client, bufnr)
 	end
 
 	-- set keybinds
-	keymap.set("n", "gf", "<cmd>Lspsaga lsp_finder<CR>", opts) -- show lspsaga table with references, definition, and implementation
+	keymap.set("n", "gh", "<cmd>Lspsaga lsp_finder<CR>", opts) -- show lspsaga table with references, definition, and implementation
 	keymap.set("n", "gR", "<cmd>Telescope lsp_references<CR>", opts) -- show definition, references
-	keymap.set("n", "gs", "<cmd>Lspsaga peek_definition<CR>", opts) -- see definition and make edits in window
+	keymap.set("n", "gj", "<cmd>Lspsaga peek_definition<CR>", opts) -- see definition and make edits in window
 
-	keymap.set("n", "<leader>cl", "<cmd>Lspsaga code_action<CR>", opts) -- see available code actions
-	keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opts) -- see available code actions
+	keymap.set("n", "<leader>ca", "<cmd>Lspsaga code_action<CR>", opts) -- see available code actions
+	-- I think I like the Lspsaga code actions dialogue more than the built in one
+	-- keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opts) -- see available code actions
 
 	keymap.set("n", "<leader>rn", "<cmd>Lspsaga rename<CR>", opts) -- smart rename
 	-- it would appear that this doesn't work
 	-- keymap.set("n", "gD", vim.lsp.buf.declaration, opts) -- got to declaration
 
-	nmap("gD", vim.lsp.buf.definition, "[G]oto [D]efinition")
 	--keymap.set("n", "gD", vim.lsp.buf.definition, opts) -- got to declaration
-	keymap.set("n", "gd", "<cmd>Telescope lsp_definitions<CR>", opts) -- see definition and make edits in window
+
+	-- I actually think I want to use the inbuilt commands for going to definition. Telescope keeps losing my place, so I can't retrace my steps with Ctrl O. This might
+	-- not be a telescope thing but I want to experiment anywat
+	-- keymap.set("n", "gf", "<cmd>Telescope lsp_definitions<CR>", opts) -- see definition and make edits in window
+	nmap("gf", vim.lsp.buf.definition, "[G]oto [D]efinition")
+
 	keymap.set("n", "gi", "<cmd>Telescope lsp_implementations<CR>", opts) -- go to implementation
 	keymap.set("n", "gt", "<cmd>Telescope lsp_type_definitions<CR>", opts) -- go to definition of the type, if only 1, otherwise show all options
 	-- nmap('gr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
@@ -84,6 +89,17 @@ for type, icon in pairs(signs) do
 	vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
 end
 
+-- configure eslint
+lspconfig["eslint"].setup({
+	capabilities = capabilities,
+	on_attach = function(client, bufnr)
+		vim.api.nvim_create_autocmd("BufWritePre", {
+			buffer = bufnr,
+			command = "EslintFixAll",
+		})
+	end,
+})
+
 -- configure html server
 lspconfig["html"].setup({
 	capabilities = capabilities,
@@ -97,6 +113,13 @@ typescript.setup({
 		on_attach = on_attach,
 	},
 })
+-- try alternative tsserver setup
+-- lspconfig["tsserver"].setup({
+-- 	capabilities = capabilities,
+-- 	on_attach = function(client)
+-- 		client.server_capabilities.document_formatting = false
+-- 	end,
+-- })
 
 -- configure css server
 lspconfig["cssls"].setup({
