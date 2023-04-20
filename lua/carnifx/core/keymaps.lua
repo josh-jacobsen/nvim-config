@@ -15,9 +15,6 @@ keymap.set("n", "<C-c>", "<Esc>")
 -- find all instances of variable in current file
 keymap.set("n", "ss", "*")
 
-keymap.set("n", "<C-j>", "5j")
-keymap.set("v", "<C-j>", "5j")
-
 keymap.set("n", "<leader>w", ":w<CR>")
 
 -- clear search highlights
@@ -41,6 +38,10 @@ keymap.set("n", "<leader>tx", ":tabclose<CR>") -- close current tab
 keymap.set("n", "<leader>tn", ":tabn<CR>") --  go to next tab
 keymap.set("n", "<leader>tp", ":tabp<CR>") --  go to previous tab
 
+-- scrolling and navigation
+
+keymap.set("n", "<C-j", ":+10<CR>")
+keymap.set("n", "<C-c>", "<Esc>")
 ----------------------
 ---- Plugin Keybinds
 ----------------------

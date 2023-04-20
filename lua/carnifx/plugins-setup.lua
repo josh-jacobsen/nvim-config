@@ -34,6 +34,7 @@ return packer.startup(function(use)
 	-- lua functions that many plugins use
 	use("nvim-lua/plenary.nvim")
 
+	use("Mofiqul/vscode.nvim")
 	-- preferred colorscheme
 	use("bluz71/vim-nightfly-guicolors")
 
