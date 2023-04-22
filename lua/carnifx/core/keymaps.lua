@@ -26,6 +26,9 @@ keymap.set("n", "cl", ":nohl<CR>")
 -- delete single character without copying into register
 keymap.set("n", "x", '"_x')
 
+-- find .env file, which is otherwise hidden from telescope
+keymap.set("n", "ee", "")
+
 -- increment/decrement numbers
 keymap.set("n", "<leader>=", "<C-a>")
 keymap.set("n", "<leader>-", "<C-x>")

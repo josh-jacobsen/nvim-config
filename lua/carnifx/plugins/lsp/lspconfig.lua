@@ -35,7 +35,7 @@ local on_attach = function(client, bufnr)
 
 	-- set keybinds
 	keymap.set("n", "gh", "<cmd>Lspsaga lsp_finder<CR>", opts) -- show lspsaga table with references, definition, and implementation
-	keymap.set("n", "gR", "<cmd>Telescope lsp_references<CR>", opts) -- show definition, references
+	keymap.set("n", "gi", "<cmd>Telescope lsp_references<CR>", opts) -- show definition, references
 	keymap.set("n", "gj", "<cmd>Lspsaga peek_definition<CR>", opts) -- see definition and make edits in window
 
 	keymap.set("n", "<leader>ca", "<cmd>Lspsaga code_action<CR>", opts) -- see available code actions
@@ -52,8 +52,8 @@ local on_attach = function(client, bufnr)
 	-- not be a telescope thing but I want to experiment anywat
 	-- keymap.set("n", "gf", "<cmd>Telescope lsp_definitions<CR>", opts) -- see definition and make edits in window
 	nmap("gf", vim.lsp.buf.definition, "[G]oto [D]efinition")
-
-	keymap.set("n", "gi", "<cmd>Telescope lsp_implementations<CR>", opts) -- go to implementation
+	-- i dont think gi actually works
+	-- keymap.set("n", "gi", "<cmd>Telescope lsp_implementations<CR>", opts) -- go to implementation
 	keymap.set("n", "gt", "<cmd>Telescope lsp_type_definitions<CR>", opts) -- go to definition of the type, if only 1, otherwise show all options
 	-- nmap('gr', require('telescope.builtin').lsp_references, '[G]oto [R]eferences')
 	-- keymap.set(
