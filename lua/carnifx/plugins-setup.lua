@@ -37,6 +37,8 @@ return packer.startup(function(use)
 	-- preferred colorscheme
 	use("bluz71/vim-nightfly-guicolors")
 
+	use("navarasu/onedark.nvim")
+
 	-- tmux & split window navigation
 	use("christoomey/vim-tmux-navigator")
 
@@ -86,7 +88,15 @@ return packer.startup(function(use)
 		"glepnir/lspsaga.nvim",
 		branch = "main",
 		config = function()
-			require("lspsaga").setup({})
+			require("lspsaga").setup({
+				finder = {
+					edit = { "o", "<CR>" },
+					vsplit = "s",
+					split = "i",
+					tabe = "t",
+					quit = { "q", "<ESC>" },
+				},
+			})
 		end,
 		requires = {
 			{ "nvim-tree/nvim-web-devicons" },

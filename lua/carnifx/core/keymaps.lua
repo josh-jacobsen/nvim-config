@@ -19,12 +19,17 @@ keymap.set("n", "<C-j>", "5j")
 keymap.set("v", "<C-j>", "5j")
 
 keymap.set("n", "<leader>w", ":w<CR>")
+keymap.set("n", "<leader>q", ":q<CR>")
+keymap.set("n", "<leader>wq", ":wq<CR>")
 
 -- clear search highlights
 keymap.set("n", "cl", ":nohl<CR>")
 
 -- delete single character without copying into register
 keymap.set("n", "x", '"_x')
+
+-- find .env file, which is otherwise hidden from telescope
+keymap.set("n", "ee", "")
 
 -- increment/decrement numbers
 keymap.set("n", "<leader>=", "<C-a>")
