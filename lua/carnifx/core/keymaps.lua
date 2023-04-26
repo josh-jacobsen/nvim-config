@@ -31,6 +31,9 @@ keymap.set("n", "x", '"_x')
 -- find .env file, which is otherwise hidden from telescope
 keymap.set("n", "ee", "")
 
+-- set new file format to dos
+keymap.set("n", "ffd", ":set ff=dos<CR>")
+
 -- increment/decrement numbers
 keymap.set("n", "<leader>=", "<C-a>")
 keymap.set("n", "<leader>-", "<C-x>")
