@@ -28,6 +28,8 @@ nvimtree.setup({
 			},
 		},
 	},
+	-- necessary to have .env files shown in tree view
+	git = { ignore = false },
 	-- disable window_picker for
 	-- explorer to work well with
 	-- window splits
