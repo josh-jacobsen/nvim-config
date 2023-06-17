@@ -49,7 +49,7 @@ local on_attach = function(client, bufnr)
 
 	keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, opts) -- see available code actions, in visual mode will apply to selection
 	keymap.set("n", "<leader>df", "<cmd>Telescope diagnostics bufnr=0<CR>", opts) -- show  diagnostics for file
-	keymap.set("n", "<leader>d", vim.diagnostic.open_float, opts) -- show diagnostics for line
+	keymap.set("n", "<leader>dl", vim.diagnostic.open_float, opts) -- show diagnostics for line
 	keymap.set("n", "[d", vim.diagnostic.goto_prev, opts) -- jump to previous diagnostic in buffer
 	keymap.set("n", "]d", vim.diagnostic.goto_next, opts) -- jump to next diagnostic in buffer
 	keymap.set("n", "K", vim.lsp.buf.hover, opts) -- show documentation for what is under cursor

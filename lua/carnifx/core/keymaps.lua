@@ -67,3 +67,15 @@ keymap.set("n", "<leader>fs", "<cmd>Telescope live_grep<cr>") -- find string in 
 keymap.set("n", "<leader>fc", "<cmd>Telescope grep_string<cr>") -- find string under cursor in current working directory
 keymap.set("n", "<leader>fb", "<cmd>Telescope buffers<cr>") -- list open buffers in current neovim instance
 keymap.set("n", "<leader>fh", "<cmd>Telescope help_tags<cr>") -- list available help tags
+
+-- diffview
+keymap.set("n", "<leader>do", ":DiffviewOpen<CR>")
+keymap.set("n", "<leader>dc", ":DiffviewClose<CR>")
+
+-- gitsigns
+keymap.set("n", "<leader>hd", ":Gitsigns next_hunk<CR>")
+keymap.set("n", "<leader>he", ":Gitsigns prev_hunk<CR>")
+keymap.set("n", "<leader>hv", ":Gitsigns preview_hunk<CR>")
+keymap.set("n", "<leader>hs", ":Gitsigns stage_hunk<CR>")
+keymap.set("n", "<leader>ha", ":Gitsigns undo_stage_hunk<CR>")
+keymap.set("n", "<leader>hr", ":Gitsigns reset_hunk<CR>")
