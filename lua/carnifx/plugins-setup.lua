@@ -144,6 +144,28 @@ return packer.startup(function(use)
 	-- git diff tool
 	use({ "sindrets/diffview.nvim", requires = "nvim-lua/plenary.nvim" })
 
+	-- yaml things
+	use({
+		"cuducos/yaml.nvim",
+		ft = { "yaml" }, -- optional
+		requires = {
+			"nvim-treesitter/nvim-treesitter",
+			"nvim-telescope/telescope.nvim", -- optional
+		},
+	})
+
+	use({
+		"someone-stole-my-name/yaml-companion.nvim",
+		requires = {
+			{ "neovim/nvim-lspconfig" },
+			{ "nvim-lua/plenary.nvim" },
+			{ "nvim-telescope/telescope.nvim" },
+		},
+		config = function()
+			require("telescope").load_extension("yaml_schema")
+		end,
+	})
+
 	if packer_bootstrap then
 		require("packer").sync()
 	end
