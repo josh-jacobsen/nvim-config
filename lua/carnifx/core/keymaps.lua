@@ -57,7 +57,7 @@ keymap.set("n", "<leader>tp", ":tabp<CR>") --  go to previous tab
 keymap.set("n", "<leader>sm", ":MaximizerToggle<CR>") -- toggle split window maximization
 
 -- nvim-tree
-keymap.set("n", "<leader>e", ":NvimTreeToggle<CR>") -- toggle file explorer
+keymap.set("n", "<leader>le", ":NvimTreeToggle<CR>") -- toggle file explorer
 keymap.set("n", "<leader>lf", ":NvimTreeFindFile<CR>") -- Locate current file in explorer
 
 -- telescope
@@ -73,9 +73,10 @@ keymap.set("n", "<leader>do", ":DiffviewOpen<CR>")
 keymap.set("n", "<leader>dc", ":DiffviewClose<CR>")
 
 -- gitsigns
-keymap.set("n", "<leader>hd", ":Gitsigns next_hunk<CR>")
-keymap.set("n", "<leader>he", ":Gitsigns prev_hunk<CR>")
-keymap.set("n", "<leader>hv", ":Gitsigns preview_hunk<CR>")
-keymap.set("n", "<leader>hs", ":Gitsigns stage_hunk<CR>")
-keymap.set("n", "<leader>ha", ":Gitsigns undo_stage_hunk<CR>")
-keymap.set("n", "<leader>hr", ":Gitsigns reset_hunk<CR>")
+keymap.set("n", "hd", ":Gitsigns next_hunk<CR>")
+keymap.set("n", "he", ":Gitsigns prev_hunk<CR>")
+keymap.set("n", "hv", ":Gitsigns preview_hunk<CR>")
+keymap.set("n", "hs", ":Gitsigns stage_hunk<CR>")
+keymap.set("n", "ha", ":Gitsigns undo_stage_hunk<CR>")
+keymap.set("n", "hr", ":Gitsigns reset_hunk<CR>")
+keymap.set("n", "bl", ":Gitsigns blame_line<CR>")
