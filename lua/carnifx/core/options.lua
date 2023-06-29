@@ -37,8 +37,13 @@ opt.splitbelow = true
 
 opt.iskeyword:append("-")
 
+-- enable code folding
+-- opt.foldmethod = "expr"
+-- opt.foldexpr = "nvim_treesitter#foldexpr()"
+
 -- Convert line endings to Unix-style when reading a file
 -- vim.cmd("autocmd BufRead * :%s/\\r//g")
 
 -- Convert line endings to Unix-style when writing a file
 -- vim.cmd("autocmd BufWritePre * :%s/\\r//g")
+--

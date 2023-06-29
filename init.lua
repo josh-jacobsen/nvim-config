@@ -1,6 +1,7 @@
 require("carnifx.core.colorscheme")
 require("carnifx.core.keymaps")
 require("carnifx.core.options")
+require("carnifx.core.code_folding")
 require("carnifx.plugins.lsp.lspconfig")
 require("carnifx.plugins.lsp.mason")
 require("carnifx.plugins.lsp.null-ls")

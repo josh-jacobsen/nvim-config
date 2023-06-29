@@ -36,10 +36,10 @@ keymap.set("n", "<leader>=", "<C-a>")
 keymap.set("n", "<leader>-", "<C-x>")
 
 -- navigate to start/end of lines in normal and visual modes
-keymap.set("n", "mz", "0")
-keymap.set("n", "mx", "$")
-keymap.set("v", "mz", "0")
-keymap.set("v", "mx", "$")
+keymap.set("n", "mx", "0")
+keymap.set("n", "mc", "$")
+keymap.set("v", "mx", "0")
+keymap.set("v", "mc", "$")
 
 -- window management
 keymap.set("n", "<leader>sv", "<C-w>v") -- split window vertically
@@ -76,10 +76,10 @@ keymap.set("n", "<leader>do", ":DiffviewOpen<CR>")
 keymap.set("n", "<leader>dc", ":DiffviewClose<CR>")
 
 -- gitsigns
-keymap.set("n", "md", ":Gitsigns next_hunk<CR>")
-keymap.set("n", "me", ":Gitsigns prev_hunk<CR>")
-keymap.set("n", "mv", ":Gitsigns preview_hunk<CR>")
-keymap.set("n", "ms", ":Gitsigns stage_hunk<CR>")
-keymap.set("n", "ma", ":Gitsigns undo_stage_hunk<CR>")
-keymap.set("n", "mr", ":Gitsigns reset_hunk<CR>")
+keymap.set("n", ",d", ":Gitsigns next_hunk<CR>")
+keymap.set("n", ",e", ":Gitsigns prev_hunk<CR>")
+keymap.set("n", ",v", ":Gitsigns preview_hunk<CR>")
+keymap.set("n", ",s", ":Gitsigns stage_hunk<CR>")
+keymap.set("n", ",a", ":Gitsigns undo_stage_hunk<CR>")
+keymap.set("n", ",r", ":Gitsigns reset_hunk<CR>")
 keymap.set("n", "bl", ":Gitsigns blame_line<CR>")
