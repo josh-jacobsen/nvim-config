@@ -64,7 +64,6 @@ keymap.set("n", "<leader>le", ":NvimTreeToggle<CR>") -- toggle file explorer
 keymap.set("n", "<leader>lf", ":NvimTreeFindFile<CR>") -- Locate current file in explorer
 
 -- telescope
--- map('n', '<leader>ff', "<cmd>lua require'telescope.builtin'.find_files({ find_command = {'rg', '--files', '--hidden', '-g', '!.git' }})<cr>", default_opts)
 keymap.set("n", "<leader>ff", "<cmd>Telescope find_files<cr>") -- find files within current working directory, respects .gitignore
 keymap.set("n", "<leader>fs", "<cmd>Telescope live_grep<cr>") -- find string in current working directory as you type
 keymap.set("n", "<leader>fc", "<cmd>Telescope grep_string<cr>") -- find string under cursor in current working directory
@@ -83,3 +82,6 @@ keymap.set("n", ",s", ":Gitsigns stage_hunk<CR>")
 keymap.set("n", ",a", ":Gitsigns undo_stage_hunk<CR>")
 keymap.set("n", ",r", ":Gitsigns reset_hunk<CR>")
 keymap.set("n", "bl", ":Gitsigns blame_line<CR>")
+
+-- neotest
+keymap.set("n", "<leader>tt", "<cmd>lua require('neotest').run.run(vim.fn.expand('%'))<cr>")

@@ -143,15 +143,20 @@ return packer.startup(function(use)
 	use("lewis6991/gitsigns.nvim") -- show line modifications on left hand side
 	-- git diff tool
 	use({ "sindrets/diffview.nvim", requires = "nvim-lua/plenary.nvim" })
+
 	-- testing region
-	-- use("vim-test/vim-test")
-	-- use vim-test first cause it looks more maintained, then try nvim-test if I can't get the window display sorted
 	use({
-		"klen/nvim-test",
-		config = function()
-			require("nvim-test").setup()
-		end,
+		"nvim-neotest/neotest",
+		requires = {
+			"nvim-lua/plenary.nvim",
+			"nvim-treesitter/nvim-treesitter",
+			"antoinemadec/FixCursorHold.nvim",
+		},
 	})
+
+	-- add test adaptors for neotest
+	use("nvim-neotest/neotest-jest")
+
 	-- yaml things
 	use({
 		"cuducos/yaml.nvim",
