@@ -84,5 +84,9 @@ keymap.set("n", ",r", ":Gitsigns reset_hunk<CR>")
 keymap.set("n", "bl", ":Gitsigns blame_line<CR>")
 
 -- neotest
-keymap.set("n", "<leader>tt", "<cmd>lua require('neotest').run.run()<cr>") -- run closest test
-keymap.set("n", "<leader>tf", "<cmd>lua require('neotest').run.run(vim.fn.expand('%'))<cr>") -- run the file
+keymap.set("n", "tt", "<cmd>lua require('neotest').run.run()<cr>") -- run closest test
+keymap.set("n", "tf", "<cmd>lua require('neotest').run.run(vim.fn.expand('%'))<cr>") -- run the file
+keymap.set("n", "tso", "<cmd>lua require('neotest').summary.open()<cr>")
+keymap.set("n", "tsc", "<cmd>lua require('neotest').summary.close()<cr>")
+keymap.set("n", "too", "<cmd>lua require('neotest').output_panel.open()<cr>")
+keymap.set("n", "toc", "<cmd>lua require('neotest').output_panel.close()<cr>")
