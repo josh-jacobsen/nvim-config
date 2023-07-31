@@ -34,9 +34,9 @@ local on_attach = function(client, bufnr)
 	end
 
 	-- set keybinds
-	keymap.set("n", "gh", "<cmd>Lspsaga lsp_finder<CR>", opts) -- show lspsaga table with references, definition, and implementation
-	keymap.set("n", "gi", "<cmd>Telescope lsp_references<CR>", opts) -- show definition, references
-	keymap.set("n", "gj", "<cmd>Lspsaga peek_definition<CR>", opts) -- see definition and make edits in window
+	-- keymap.set("n", "gh", "<cmd>Lspsaga lsp_finder<CR>", opts) -- show lspsaga table with references, definition, and implementation
+	keymap.set("n", "gh", "<cmd>Telescope lsp_references<CR>", opts) -- show definition, references
+	-- keymap.set("n", "gj", "<cmd>Lspsaga peek_definition<CR>", opts) -- see definition and make edits in window
 	keymap.set("n", "gt", "<cmd>Telescope lsp_type_definitions<CR>", opts) -- go to definition of the type, if only 1, otherwise show all options
 
 	-- I actually think I want to use the inbuilt commands for going to definition. Telescope keeps losing my place, so I can't retrace my steps with Ctrl O. This might
@@ -108,6 +108,13 @@ typescript.setup({
 -- configure css server
 lspconfig["cssls"].setup({
 	capabilities = capabilities,
+	on_attach = on_attach,
+})
+
+require("lspconfig").elixirls.setup({
+	cmd = {
+		"/Users/josh/.cache/nvim/elixir-tools.nvim/installs/elixir-lsp/elixir-ls/tags_v0.15.1/1.14.4-25/language_server.sh",
+	},
 	on_attach = on_attach,
 })
 

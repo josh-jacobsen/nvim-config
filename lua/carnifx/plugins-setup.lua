@@ -157,6 +157,14 @@ return packer.startup(function(use)
 	-- add test adaptors for neotest
 	use("nvim-neotest/neotest-jest")
 
+	-- dap
+	use("mfussenegger/nvim-dap")
+	use("mxsdev/nvim-dap-vscode-js")
+
+
+	-- elixir 
+	use({ "elixir-tools/elixir-tools.nvim", tag = "stable", requires = { "nvim-lua/plenary.nvim" } })
+
 	-- yaml things
 	use({
 		"cuducos/yaml.nvim",
