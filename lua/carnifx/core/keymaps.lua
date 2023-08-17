@@ -18,7 +18,7 @@ keymap.set("n", "ss", "*")
 keymap.set("n", "<leader>w", ":w<CR>")
 keymap.set("n", "<leader>q", ":q<CR>")
 keymap.set("n", "<leader>wq", ":wq<CR>")
-
+vim.keymap.set("n", "<leader>wa", ":wa<CR>")
 -- clear search highlights
 keymap.set("n", "cl", ":nohl<CR>")
 
@@ -36,10 +36,20 @@ keymap.set("n", "<leader>=", "<C-a>")
 keymap.set("n", "<leader>-", "<C-x>")
 
 -- navigate to start/end of lines in normal and visual modes
-keymap.set("n", "mx", "0")
-keymap.set("n", "mc", "$")
-keymap.set("v", "mx", "0")
-keymap.set("v", "mc", "$")
+keymap.set({ "n", "v" }, "zz", "0")
+keymap.set({ "n", "v" }, "mm", "$")
+-- delete to start/end of line
+keymap.set({ "n", "v" }, "dz", "d0")
+keymap.set({ "n", "v" }, "dm", "d$")
+
+-- when jumping up/down using Ctrl-d / Ctrl-u, keep cursor in the middle of the screen
+-- to make the jump less jarring
+vim.keymap.set("n", "<C-d>", "<C-d>zz")
+vim.keymap.set("n", "<C-u>", "<C-u>zz")
+
+-- When code is selected, use J and K to move the blocks up/down
+vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
+vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
 -- window management
 keymap.set("n", "<leader>sv", "<C-w>v") -- split window vertically
