@@ -17,6 +17,7 @@ keymap.set("n", "ss", "*")
 
 keymap.set("n", "<leader>w", ":w<CR>")
 keymap.set("n", "<leader>q", ":q<CR>")
+keymap.set("n", "<leader><leader>q", ":q!<CR>")
 keymap.set("n", "<leader>wq", ":wq<CR>")
 vim.keymap.set("n", "<leader>wa", ":wa<CR>")
 -- clear search highlights
@@ -100,3 +101,19 @@ keymap.set("n", "tso", "<cmd>lua require('neotest').summary.open()<cr>")
 keymap.set("n", "tsc", "<cmd>lua require('neotest').summary.close()<cr>")
 keymap.set("n", "too", "<cmd>lua require('neotest').output_panel.open()<cr>")
 keymap.set("n", "toc", "<cmd>lua require('neotest').output_panel.close()<cr>")
+
+-- terminal
+keymap.set("n", "<leader><leader>t", "<cmd>terminal<cr>")
+
+-- add ESC and jk as shortcuts to exit insert mode in terminal
+local function set_terminal_keymaps()
+	local opts = { buffer = 0 }
+	vim.keymap.set("t", "<esc>", [[<C-\><C-n>]], opts)
+	vim.keymap.set("t", "jk", [[<C-\><C-n>]], opts)
+end
+
+-- if you only want these mappings for toggle term use term://*toggleterm#* instead
+vim.api.nvim_create_autocmd("TermOpen", {
+	pattern = [[term://*]],
+	callback = set_terminal_keymaps,
+})
