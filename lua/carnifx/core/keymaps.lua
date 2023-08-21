@@ -6,7 +6,6 @@ local keymap = vim.keymap -- for conciseness
 ---------------------
 ---- General Keymaps
 -----------------------
-
 -- exit insert mode
 keymap.set("i", "jk", "<ESC>")
 -- map Ctl c to Escape so I don't have to move my fingers when trying to get
@@ -102,7 +101,21 @@ keymap.set("n", "tsc", "<cmd>lua require('neotest').summary.close()<cr>")
 keymap.set("n", "too", "<cmd>lua require('neotest').output_panel.open()<cr>")
 keymap.set("n", "toc", "<cmd>lua require('neotest').output_panel.close()<cr>")
 
--- terminal
+-- harpoon
+-- from the quickmenu, open a file in:
+-- vertical split: control + v,
+-- horizontal split: control + x
+-- new tab: control + t
+vim.keymap.set("n", "fa", "<cmd>lua require('harpoon.mark').add_file()<cr>")
+-- to remove a file, use dd from the menu
+vim.keymap.set("n", "fo", "<cmd>lua require('harpoon.ui').toggle_quick_menu()<cr>")
+
+vim.keymap.set("n", "fn", "<cmd>lua require('harpoon.ui').nav_next()<cr>")
+vim.keymap.set("n", "fb", "<cmd>lua require('harpoon.ui').nav_prev()<cr>")
+-- :lua require("harpoon.ui").nav_next()                   -- navigates to next mark
+-- :lua require("harpoon.ui").nav_prev()                   -- navigates to previous mark
+--
+-- -- terminal
 keymap.set("n", "<leader><leader>t", "<cmd>terminal<cr>")
 
 -- add ESC and jk as shortcuts to exit insert mode in terminal

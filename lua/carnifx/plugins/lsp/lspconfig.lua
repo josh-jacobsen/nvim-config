@@ -42,7 +42,7 @@ local on_attach = function(client, bufnr)
 	-- I actually think I want to use the inbuilt commands for going to definition. Telescope keeps losing my place, so I can't retrace my steps with Ctrl O. This might
 	-- not be a telescope thing but I want to experiment anywat
 	-- keymap.set("n", "gf", "<cmd>Telescope lsp_definitions<CR>", opts) -- see definition and make edits in window
-	nmap("gf", vim.lsp.buf.definition, "[G]oto [D]efinition")
+	nmap("gd", vim.lsp.buf.definition, "[G]oto [D]efinition")
 
 	keymap.set("n", "<leader>ca", "<cmd>Lspsaga code_action<CR>", opts) -- see available code actions
 	keymap.set("n", "<leader>rn", "<cmd>Lspsaga rename<CR>", opts) -- smart rename

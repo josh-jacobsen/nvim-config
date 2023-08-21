@@ -1,3 +1,6 @@
+-- Packer installs packages to:
+-- ➜  ~/.local/share/nvim/site/pack/packer/start
+
 -- auto install packer if not installed
 local ensure_packer = function()
 	local fn = vim.fn
@@ -135,6 +138,8 @@ return packer.startup(function(use)
 		end,
 	})
 
+	use("ThePrimeagen/harpoon")
+
 	-- auto closing
 	use("windwp/nvim-autopairs") -- autoclose parens, brackets, quotes, etc...
 	use({ "windwp/nvim-ts-autotag", after = "nvim-treesitter" }) -- autoclose tags
@@ -161,8 +166,7 @@ return packer.startup(function(use)
 	use("mfussenegger/nvim-dap")
 	use("mxsdev/nvim-dap-vscode-js")
 
-
-	-- elixir 
+	-- elixir
 	use({ "elixir-tools/elixir-tools.nvim", tag = "stable", requires = { "nvim-lua/plenary.nvim" } })
 
 	-- yaml things
