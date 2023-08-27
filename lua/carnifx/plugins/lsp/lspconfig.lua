@@ -117,12 +117,12 @@ lspconfig["cssls"].setup({
 	on_attach = on_attach,
 })
 
-require("lspconfig").elixirls.setup({
-	cmd = {
-		"/Users/josh/.cache/nvim/elixir-tools.nvim/installs/elixir-lsp/elixir-ls/tags_v0.15.1/1.14.4-25/language_server.sh",
-	},
-	on_attach = on_attach,
-})
+--require("lspconfig").elixirls.setup({
+--	cmd = {
+--		"/Users/josh/.cache/nvim/elixir-tools.nvim/installs/elixir-lsp/elixir-ls/tags_v0.15.1/1.14.4-25/language_server.sh",
+--	},
+--	on_attach = on_attach,
+--})
 
 -- configure tailwindcss server
 -- lspconfig["tailwindcss"].setup({
