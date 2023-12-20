@@ -73,7 +73,7 @@ local capabilities = cmp_nvim_lsp.default_capabilities()
 
 -- Change the Diagnostic symbols in the sign column (gutter)
 -- (not in youtube nvim video)
-local signs = { Error = " ", Warn = " ", Hint = "ﴞ ", Info = " " }
+local signs = { Error = " ", Warn = " ", Hint = "󰛨 ", Info = " " }
 for type, icon in pairs(signs) do
 	local hl = "DiagnosticSign" .. type
 	vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
@@ -117,12 +117,12 @@ lspconfig["cssls"].setup({
 	on_attach = on_attach,
 })
 
---require("lspconfig").elixirls.setup({
---	cmd = {
---		"/Users/josh/.cache/nvim/elixir-tools.nvim/installs/elixir-lsp/elixir-ls/tags_v0.15.1/1.14.4-25/language_server.sh",
---	},
---	on_attach = on_attach,
---})
+require("lspconfig").elixirls.setup({
+	cmd = {
+		"/Users/carnifx/.cache/nvim/elixir-tools.nvim/installs/elixir-lsp/elixir-ls/tags_v0.15.1/1.14.4-25/language_server.sh",
+	},
+	on_attach = on_attach,
+})
 
 -- configure tailwindcss server
 -- lspconfig["tailwindcss"].setup({
