@@ -167,7 +167,7 @@ return packer.startup(function(use)
 	use("mxsdev/nvim-dap-vscode-js")
 
 	-- elixir
-	use({ "elixir-tools/elixir-tools.nvim", tag = "stable", requires = { "nvim-lua/plenary.nvim" } })
+	-- use({ "elixir-tools/elixir-tools.nvim", tag = "stable", requires = { "nvim-lua/plenary.nvim" } })
 
 	-- yaml things
 	use({

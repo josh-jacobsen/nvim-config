@@ -119,7 +119,7 @@ lspconfig["cssls"].setup({
 
 require("lspconfig").elixirls.setup({
 	cmd = {
-		"/Users/carnifx/.cache/nvim/elixir-tools.nvim/installs/elixir-lsp/elixir-ls/tags_v0.15.1/1.14.4-25/language_server.sh",
+		"/Users/carnifx/.elixir-ls/dist/language_server.sh",
 	},
 	on_attach = on_attach,
 })
