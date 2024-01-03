@@ -119,11 +119,31 @@ lspconfig["cssls"].setup({
 
 require("lspconfig").elixirls.setup({
 	cmd = {
-		"/Users/carnifx/.elixir-ls/dist/language_server.sh",
+		"/Users/carnifx/.elixir-ls-manual/dist/language_server.sh",
 	},
+	capabilities = capabilities,
 	on_attach = on_attach,
+	-- these settings come from https://www.mitchellhanberg.com/how-to-set-up-neovim-for-elixir-development/
+	-- assess and then decide if I want dialyzer disabled
+	settings = {
+		elixirLS = {
+			-- I choose to disable dialyzer for personal reasons, but
+			-- I would suggest you also disable it unless you are well
+			-- acquainted with dialzyer and know how to use it.
+			dialyzerEnabled = false,
+			-- I also choose to turn off the auto dep fetching feature.
+			-- It often get's into a weird state that requires deleting
+			-- the .elixir_ls directory and restarting your editor.
+			fetchDeps = false,
+		},
+	},
 })
 
+require("lspconfig").efm.setup({
+	capabilities = capabilities,
+	on_attach = on_attach,
+	filetypes = { "elixir" },
+})
 -- configure tailwindcss server
 -- lspconfig["tailwindcss"].setup({
 -- 	capabilities = capabilities,

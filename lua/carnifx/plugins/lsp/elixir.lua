@@ -1,5 +1,11 @@
--- require("elixir").setup({
--- 	nextls = { enable = false },
+-- local elixir = require("elixir")
+-- local elixirls = require("elixir.elixirls")
+--
+-- elixir.setup({
+-- 	nextls = { enable = true },
 -- 	credo = { enable = true },
--- 	elixirls = { enable = true },
+-- 	elixirls = {
+-- 		enable = false,
+-- 		cmd = "/Users/carnifx/.elixir-ls-manual/dist/language_server.sh",
+-- 	},
 -- })
