@@ -115,8 +115,6 @@ vim.keymap.set("n", "fb", "<cmd>lua require('harpoon.ui').nav_prev()<cr>")
 -- :lua require("harpoon.ui").nav_next()                   -- navigates to next mark
 -- :lua require("harpoon.ui").nav_prev()                   -- navigates to previous mark
 --
--- -- terminal
-keymap.set("n", "<leader><leader>t", "<cmd>terminal<cr>")
 
 -- add ESC and jk as shortcuts to exit insert mode in terminal
 local function set_terminal_keymaps()

@@ -190,7 +190,11 @@ return packer.startup(function(use)
 			require("telescope").load_extension("yaml_schema")
 		end,
 	})
-
+	-- Terminal
+	use({
+		"akinsho/toggleterm.nvim",
+		tag = "*",
+	})
 	if packer_bootstrap then
 		require("packer").sync()
 	end
