@@ -30,7 +30,7 @@ telescope.setup({
 	},
 	pickers = {
 		find_files = {
-			find_command = { "rg", "--files", "--hidden", "-g", "!.git" },
+			find_command = { "rg", "--files", "--hidden" },
 			layout_config = {
 				height = 0.70,
 			},
