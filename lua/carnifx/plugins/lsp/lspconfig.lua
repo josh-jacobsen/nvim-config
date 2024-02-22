@@ -66,6 +66,9 @@ local on_attach = function(client, bufnr)
 		vim.keymap.set("n", "<space>tp", ":ElixirToPipe<cr>", { buffer = true, noremap = true })
 		vim.keymap.set("v", "<space>em", ":ElixirExpandMacro<cr>", { buffer = true, noremap = true })
 	end
+	if client.name == "yamlls" then
+		print("got a yaml buffer")
+	end
 end
 
 -- used to enable autocompletion (assign to every lsp server config)
