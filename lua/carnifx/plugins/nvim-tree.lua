@@ -13,7 +13,7 @@ vim.cmd([[ highlight NvimTreeIndentMarker guifg=#3FC5FF ]])
 
 -- configure nvim-tree
 nvimtree.setup({
-	view = { side = "right", width = 40 },
+	view = { side = "right", width = 50 },
 	filters = {
 		dotfiles = false,
 	},

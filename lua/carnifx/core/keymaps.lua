@@ -106,14 +106,16 @@ keymap.set("n", "toc", "<cmd>lua require('neotest').output_panel.close()<cr>")
 -- vertical split: control + v,
 -- horizontal split: control + x
 -- new tab: control + t
+-- opening the file in a new tab can be really useful when keeping an eye on where you are in the codebase,
+-- and which files I'm currently working on
 vim.keymap.set("n", "fa", "<cmd>lua require('harpoon.mark').add_file()<cr>")
 -- to remove a file, use dd from the menu
 vim.keymap.set("n", "fo", "<cmd>lua require('harpoon.ui').toggle_quick_menu()<cr>")
 
+-- these can be very useful when cycling through only a few files, as it will open the file in the
+-- same buffer without needing to open the Harpoon ui
 vim.keymap.set("n", "fn", "<cmd>lua require('harpoon.ui').nav_next()<cr>")
 vim.keymap.set("n", "fb", "<cmd>lua require('harpoon.ui').nav_prev()<cr>")
--- :lua require("harpoon.ui").nav_next()                   -- navigates to next mark
--- :lua require("harpoon.ui").nav_prev()                   -- navigates to previous mark
 --
 
 -- add ESC and jk as shortcuts to exit insert mode in terminal
