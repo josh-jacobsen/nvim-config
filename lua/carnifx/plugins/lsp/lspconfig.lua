@@ -10,9 +10,9 @@ if not cmp_nvim_lsp_status then
 	return
 end
 
--- import typescript plugin safely
-local typescript_setup, typescript = pcall(require, "typescript")
-if not typescript_setup then
+-- import typescript-tools plugin safely
+local typescript_tools_setup, typescript_tools = pcall(require, "typescript-tools")
+if not typescript_tools_setup then
 	return
 end
 
@@ -102,7 +102,7 @@ lspconfig["html"].setup({
 })
 
 -- configure typescript server with plugin
-typescript.setup({
+typescript_tools.setup({
 	server = {
 		capabilities = capabilities,
 		on_attach = on_attach,
